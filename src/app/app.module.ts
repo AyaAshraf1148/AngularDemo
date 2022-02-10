@@ -13,6 +13,10 @@ import { PostsComponent } from './posts/posts.component';
 import { UsersComponent } from './users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageComponent } from './page/page.component';
+import { ProductsWithDiscountComponent } from './products-with-discount/products-with-discount.component';
+import { ProductsWithNoDiscountComponent } from './products-with-no-discount/products-with-no-discount.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -31,6 +35,10 @@ import { PageComponent } from './page/page.component';
     PostsComponent,
     UsersComponent,
     PageComponent,
+    ProductsWithDiscountComponent,
+    ProductsWithNoDiscountComponent,
+    LoginComponent,
+    RegisterComponent,
     // SharedclassesandtypesComponent
   ],
   imports: [

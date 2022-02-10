@@ -1,9 +1,10 @@
 import { Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { DiscountOffers } from '../SharedClassesAndTypes/DiscountOffers';
 import { IProduct } from '../SharedClassesAndTypes/IProduct';
 import { ICategory } from '../SharedClassesAndTypes/ICategory';
 import { ProductServicesService } from '../Services/product-services.service';
+import { IProducts2 } from '../SharedClassesAndTypes/Iproducts2';
 
 @Component({
   selector: 'app-products',
@@ -14,12 +15,12 @@ export class ProductsComponent implements OnInit {
 
   // Discount :any= DiscountOffers.Discount1;
   // StoreLogo: string="../../assets/logo.jpg";
-  ProductList : IProduct[]= [];
-  ClientName: string=" ";
+  ProductList : any;
+  // ClientName: string=" ";
   IsPurshased: boolean=true;
   products:any={};
-  StoreName:string=" ";
-  CategoryList : ICategory[]=[];
+  // StoreName:string=" ";
+  // CategoryList : ICategory[]=[];
   Showcard:boolean=false;
 
       //   {
@@ -56,7 +57,8 @@ export class ProductsComponent implements OnInit {
   
   constructor(
     private productService:ProductServicesService,
-    private router:Router
+    private router:Router,
+    private activeroute:ActivatedRoute
     ){}
   //   this.Discount=DiscountOffers.Discount1,
   //   this.StoreName="Electronics section",
@@ -113,6 +115,15 @@ export class ProductsComponent implements OnInit {
  
   ngOnInit(): void {
     this.renderValues();
+  }
+  WithDiscount()
+  {
+    this.router.navigate(["WithDiscount"],{relativeTo:this.activeroute})
+  }
+
+  WithNoDiscount()
+  {
+    this.router.navigate(["WithNoDiscount"],{relativeTo:this.activeroute})
   }
   
   PrintMsg()
