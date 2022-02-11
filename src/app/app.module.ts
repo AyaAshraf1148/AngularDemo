@@ -17,6 +17,10 @@ import { ProductsWithDiscountComponent } from './products-with-discount/products
 import { ProductsWithNoDiscountComponent } from './products-with-no-discount/products-with-no-discount.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NotesComponent } from './notes/notes.component';
+import { ReactiveFormRegisterComponent } from './reactive-form-register/reactive-form-register.component';
+import { ReactiveFormLoginComponent } from './reactive-form-login/reactive-form-login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -39,6 +43,9 @@ import { RegisterComponent } from './register/register.component';
     ProductsWithNoDiscountComponent,
     LoginComponent,
     RegisterComponent,
+    NotesComponent,
+    ReactiveFormRegisterComponent,
+    ReactiveFormLoginComponent,
     // SharedclassesandtypesComponent
   ],
   imports: [
@@ -47,6 +54,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule
     
   ],
   

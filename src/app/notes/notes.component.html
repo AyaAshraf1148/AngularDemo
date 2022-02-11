@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="container m-5 col-6">
+    <div>
+        <form [formGroup]="NotesForm">
+            <div class="row g-3">
+                <div class="col">
+                    <label for="uname">Username :</label>
+                    <input type="text" class="form-control" name="uname" formControlName="Name" 
+                    [class.is-invalid]="Name?.invalid && Name?.touched">
+                    <div *ngIf="Name?.invalid && Name?.touched">
+                        <small class="text-danger" *ngIf="Name?.errors?.['required']"> Name is required</small>
+                        <small class="text-danger" *ngIf="Name?.errors?.['forbiddenName']"> {{Name?.errors?.['forbiddenName'].value}} is Not Allowed</small>             
+                    </div>
+                </div>
+            </div><br>
+
+            <div class="form-group" class="dropdown">
+                <label> Select product: </label><br>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Products List </option>
+                    <option value="1">iphone</option>
+                    <option value="2">Laptop</option>
+                  </select>
+            </div><br>
+            <div class="form-group">
+                <label> Discount:</label><br>
+                <input  type="number" formControlName="discount" 
+                [class.is-invalid]="discount?.invalid && discount?.touched">
+                <small  [class.d-none]="discount?.valid ||discount?.untouched">Discount is Required</small>
+            </div><br>
+
+            <div>
+                <input  type="checkbox" formControlName="check" class="form-check-input" (click)="DiscountValids()">
+                <label  class="form-check-label">Does this product containd discount</label>
+            </div><br><br>
+
+            <div>
+                <div formArrayName="newComments">
+                    <div *ngFor="let comment of newComments?.controls ;let i = index ">
+                        <label>{{"Comment #"}} {{i+1}} </label>
+                        <input type="text" formControlName="i" class="form-control">
+                    </div>
+
+                </div>
+                <button class = 'btn mt-2' (click)="addnewComments()" style="background-color: gray;"> Add new Comment</button>
+            </div>
+
+        </form>
+    </div>
+</div> 
+<app-footer></app-footer>

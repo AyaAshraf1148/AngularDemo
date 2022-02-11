@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="container m-5 col-6">
+<div>
+<form  [formGroup]="registerationForm">
+    <div class="form-group ">
+
+      <label for="uname">Username :</label>
+      <input type="text" class="form-control" name="uname" formControlName="userName" 
+      [class.is-invalid]="userName?.invalid && userName?.touched">
+      <div *ngIf="userName?.invalid && userName?.touched">
+          <small class="text-danger" *ngIf="userName?.errors?.['required']"> Username is required</small>
+          <small class="text-danger" *ngIf="userName?.errors?.['minlength']"> Username must contain more than 5 letters</small>
+          <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']"> {{userName?.errors?.['forbiddenName'].value}} is Not Allowed</small>      
+
+       </div>
+
+      <label for="email">Email :</label>
+      <input type="text" class="form-control"  name="Email" formControlName="email"
+       [class.is-invalid]="email?.invalid && email?.touched">
+      <div *ngIf="email?.invalid && email?.touched">
+        <small class="text-danger" *ngIf="email?.errors?.['required']"> email is required</small>
+        <small class="text-danger" *ngIf="email?.errors?.['pattern']"> email must contain @ </small> 
+       </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Password :</label>
+      <input type="password" class="form-control"  name="pswd" formControlName="password"
+      [class.is-invalid]="password?.invalid && password?.touched">
+      <div *ngIf="password?.invalid && password?.touched" >
+        <small class="text-danger" *ngIf="password?.errors?.['required']"> password is required</small>
+        <small class="text-danger" *ngIf="password?.errors?.['minlength']"> Password should contain more than 8 characters </small>
+      </div>
+
+      <label for="cpwd">Confirm Password :</label>
+      <input type="password" class="form-control"  name="cpswd" formControlName="confirmPassword">
+      <div>
+          <small class="text-danger" *ngIf="registerationForm?.errors?.['misMatch']"> it doesn't match </small>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <label for="cpwd">Where Did You Hear About Us :</label><br>
+        <select class="form-select" aria-label="Default select example">
+          <option selected> -----please select option----- </option>
+          <option value="1" *ngFor="let soc of social">{{soc}}</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn mt-3" style="background-color: gray;" >Register</button>
+  </form>
+</div>
+</div>
+<app-footer></app-footer>

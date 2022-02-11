@@ -1,0 +1,27 @@
+<app-header></app-header>
+<div class="container m-5 col-6">
+<form  [formGroup]="LoginForm">
+  <br>
+    <div class="form-group">
+      <label for="email">Email :</label>
+      <input type="text" class="form-control"  name="Email" formControlName="email"
+       [class.is-invalid]="email?.invalid && email?.touched">
+      <div *ngIf="email?.invalid && email?.touched">
+        <small class="text-danger" *ngIf="email?.errors?.['required']"> email is required</small>
+        <small class="text-danger" *ngIf="email?.errors?.['pattern']"> email must contain @ </small> 
+       </div>
+    </div>
+      <div class="form-group">
+        <label for="pwd">Password :</label>
+        <input type="password" class="form-control"  name="pswd" formControlName="password"
+        [class.is-invalid]="password?.invalid && password?.touched">
+        <div *ngIf="password?.invalid && password?.touched" >
+          <small class="text-danger" *ngIf="password?.errors?.['required']"> password is required</small>
+          <small class="text-danger" *ngIf="password?.errors?.['minlength']"> Password should contain 8 characters </small>
+        </div>    
+      </div>
+      <button type="submit" class="btn mt-3" style="background-color: gray;">Login</button>
+
+</form>
+</div>
+<app-footer></app-footer>
